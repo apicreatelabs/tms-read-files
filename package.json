@@ -1,0 +1,39 @@
+{
+  "name": "tms-read-files",
+  "version": "1.0.0",
+  "description": "read files xlsx csv txt",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apicreatelabs/tms-read-files.git"
+  },
+  "keywords": [
+    "Api",
+    "Read",
+    "Csv",
+    "Xlsx",
+    "Txt"
+  ],
+  "author": "Jorge Ivan Reyes Valencia <jorgeivanreyesvalencia92@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apicreatelabs/tms-read-files/issues"
+  },
+  "homepage": "https://github.com/apicreatelabs/tms-read-files#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "swagger-ui-express": "^4.1.6",
+    "xlsx": "^0.16.9",
+    "yamljs": "^0.3.0"
+  }
+}
