@@ -7,11 +7,21 @@ router.get("/", (req,res) =>{
     res.json(readFiles.read('./files/test.xls'))
 });
 
-router.post('/upload', (req, res)=> {
 
-    let  data = readFiles.reqFile(req.files.name);
-    res.json(data);
+
+router.post('/config', (req, res)=> {
+    
   });
-  
+
+
+router.post('/excel', (req, res)=> {
+  if(req.files.data.mimetype === 'application/vnd.ms-excel' || req.files.data.mimetype === "sdsds"){
+    let  data = readFiles.reqFile(req.files.data);
+    res.json(data);
+  }
+  else{
+    res.status(400).json('format incorect');
+  } 
+});
 
 module.exports = router;
