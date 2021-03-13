@@ -25,10 +25,10 @@ app.use(fileUpload({
 }));
 
 
-const userRoute = require("./routes/files");
+const fileRoute = require("./routes/files");
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-app.use("/read", userRoute);
+app.use("/files", fileRoute);
 
 app.listen(port, () => {
   console.log(`API running for port ${port}`.green);
