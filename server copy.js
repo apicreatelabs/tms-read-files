@@ -3,9 +3,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const fileUpload = require('express-fileupload');
 
-const swaggerUI = require("swagger-ui-express");
-const YAML = require("yamljs");
-const swaggerDocument = YAML.load("./docs/swagger.yaml");
+
+const swaggerUi= require('swagger-ui-express');
+const  YAML =require('yamljs');
+const swaggerDocument = YAML.load('./docs/swagger.yaml');
+
+
 var colors = require('colors');
 
 require("dotenv").config();
@@ -24,9 +27,9 @@ app.use(fileUpload({
 
 const fileRoute = require("./routes/files");
 
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-app.use("/files", fileRoute);
 
+app.use("/api/files", fileRoute);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(port, () => {
   console.log(`API running for port ${port}`.green);
 });

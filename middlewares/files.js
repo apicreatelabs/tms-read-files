@@ -13,6 +13,8 @@ async function procesData(req, res, next) {
     console.log("tipo",req.objects.type)
     switch (req.objects.type) {
         case "DBF":
+        case "OCTET-STREAM":
+            console.log('dbf');
             req.objects.response = 200
             req.objects.data = await libDbf.read(req.files.data.tempFilePath)
             break;

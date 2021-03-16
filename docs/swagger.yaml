@@ -1,0 +1,61 @@
+openapi: '3.0.2'
+info:
+  title: Api Create Tecnical microservices read files 
+  version: '0.0.1'
+servers:
+  - url: http://localhost:2000
+    description: Developer server
+  - url: https://apicreate.com/services/
+    description: Production server
+tags:
+- name: "Files"
+  description: "Enponint File Handling"
+
+paths:
+  /files/read:
+    post:
+      tags:
+      - "Files"
+      summary: "Read files micro services"
+      description: "Read files ecxel csv dbf"
+      operationId: "readFile"
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  format: binary
+                  required:
+                    - "true"
+      responses:
+         "405":
+          description: "Invalid input"
+
+components:
+  schemas:
+    Errors:
+      type: object
+      properties:
+        descriptions:
+          type: array
+          example: "Format No Soport"
+    Success:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            services:
+              type: string
+              example: "service example"
+        data:
+          type: object
+          example: [{id:1,name:"jorge"},{id:2,name:"daniel"},{id:3,name:"juan"},{id:4,name:"charly"}]      

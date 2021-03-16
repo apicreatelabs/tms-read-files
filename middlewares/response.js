@@ -1,12 +1,18 @@
 responseData = (req,res) =>{
     if(req.objects.response === 200){
         res.json({
-            status:2000,
-            data: req.objects.data
+            info:{
+                status: 200
+            },
+            result:req.objects.data
         });
     }
     else{
-        res.status(400);
+        res.status(404).json({ errors:{
+            descriptions: [
+                "Format no soport"
+            ]
+        }})
     }
 }
 
