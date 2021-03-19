@@ -1,6 +1,6 @@
 openapi: '3.0.2'
 info:
-  title: Api Create Tecnical microservices read files 
+  title: Api Create Tecnical Microservices Read Files 
   version: '0.0.1'
 servers:
   - url: http://localhost:2000
@@ -33,8 +33,18 @@ paths:
                   required:
                     - "true"
       responses:
-         "405":
-          description: "Invalid input"
+        '200':
+          description: show data
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/Success'
+        '400':
+          description: errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
 
 components:
   schemas:
@@ -43,7 +53,7 @@ components:
       properties:
         descriptions:
           type: array
-          example: "Format No Soport"
+          example: ["Format No Soport"]
     Success:
       type: object
       properties:
@@ -53,9 +63,12 @@ components:
             status:
               type: integer
               example: 200
-            services:
+            urlServices:
               type: string
-              example: "service example"
-        data:
-          type: object
+              example: "http://localhost:3000"
+            path:
+              type: string
+              example: "/services/method"
+        result:
+          type: array
           example: [{id:1,name:"jorge"},{id:2,name:"daniel"},{id:3,name:"juan"},{id:4,name:"charly"}]      

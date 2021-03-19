@@ -3,25 +3,25 @@ const router = express.Router();
 
 const controller =  require('../controllers/files');
 
-router.post("/read",controller.read);
-
-
-// router.post('/', async(req, res)=> {
-//   let  data
-//   let type  = req.body.type
-
-//   switch (type) {
-//     case 'excel':
-//       data = readFiles.reqFile(req.files.data);
-//       res.json(data);
-//     break;
-//     case 'dbf':
-//       data = await readFilesDBF.read(req.files.data.tempFilePath)
-//       res.json(data);
-//     break
-//   }
-//     res.status(400).json("Register Type"); 
-// });
-
+router.post('/read',controller.read);
+router.post('/save',controller.saveFileDatabase);
 
 module.exports = router;
+
+
+
+// MongoClient.connect(process.env.URL_DATABASE,{ useUnifiedTopology:true })
+// .then(client => {
+//   const db = client.db(process.env.DATABASE)
+//   const quotesCollection = db.collection('prueba')
+  
+//   app.post('/save', (req, res) => {
+//     quotesCollection.insertMany(req.body)
+//       .then(result => {
+//         console.log(result)
+//       })
+//       .catch(error => console.error(error))
+//   })
+
+// })
+// .catch(console.error)
