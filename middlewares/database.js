@@ -1,7 +1,5 @@
 const MongoClient = require('mongodb').MongoClient
 
-
-
 function multiSave(req, res, next) {
     console.log(req.objects.data);
     MongoClient.connect(process.env.URL_DATABASE, { useUnifiedTopology: true })

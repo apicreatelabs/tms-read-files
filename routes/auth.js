@@ -1,1 +1,9 @@
-let token = "https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OTAiLCJDb21wYW55IjoiQ29taWFncm8gUyBBIiwiYnVzaW5lc3NOYW1lIjoiQ29taXNpb25pc3RhcyBBZ3JvcGVjdWFyaW9zIENvbWlhZ3JvIFMgQSJ9.Q1YFe7wFel3v3p213nQsAiRbhjtYjKkSisUNU1IHrko";
+const express = require("express");
+const router = express.Router();
+
+const controller =  require('../controllers/files');
+
+router.post('/read',controller.read);
+router.post('/save',controller.saveFileDatabase);
+
+module.exports = router;
