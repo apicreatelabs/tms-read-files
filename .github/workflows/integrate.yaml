@@ -1,18 +1,16 @@
-name: continuous integration Node
-
+name: 'coverage'
 on:
-  pull_request:
-    branches: [ master ]
-
+    pull_request:
+        branches:
+            - master
 jobs:
-  ci_to_master:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.15.5
-      - run: npm ci
-      - run: npm test
-      - run: npm run dev
-      
+    coverage:
+        runs-on: ubuntu-latest
+        env:
+            CI_JOB_NUMBER: 1
+        steps:
+            - uses: actions/checkout@v1
+            - uses: artiomtr/jest-coverage-report-action@v1.0
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  #   threshold: 80 # optional parameter
