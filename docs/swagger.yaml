@@ -1,0 +1,160 @@
+openapi: "3.0.2"
+info:
+  title: Api Create Tecnical Microservices Read Files
+  version: "0.0.1"
+servers:
+  - url: http://localhost:2000
+    description: Developer server
+  - url: https://apicreate.com/services/
+    description: Production server
+tags:
+  - name: "Authentication"
+    description: "Enpoint Auth API"
+  - name: "Files"
+    description: "Enponint File Handling"
+
+
+paths:
+
+  /api/auth:
+    post:
+      tags:
+        - "Authentication"
+      summary: "Read files micro services"
+      description: "Read files ecxel csv dbf"
+      operationId: "readFile"
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  format: binary
+                  required:
+                    - "true"
+      responses:
+        "200":
+          description: show data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Success"
+        "400":
+          description: errors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+
+
+  /api/files/read:
+    post:
+      tags:
+        - "Files"
+      summary: "Read files micro services"
+      description: "Read files ecxel csv dbf"
+      operationId: "readFile"
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  format: binary
+                  required:
+                    - "true"
+      responses:
+        "200":
+          description: show data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Success"
+        "400":
+          description: errors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+
+  /api/files/save:
+    post:
+      tags:
+        - "Files"
+      summary: "Read files micro services"
+      description: "Read files ecxel csv dbf"
+      operationId: "readFile"
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  format: binary
+                  required:
+                    - "true"
+      responses:
+        "200":
+          description: show data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Success"
+        "400":
+          description: errors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+
+
+components:
+  schemas:
+    Errors:
+      type: object
+      properties:
+        errors:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 400
+            descriptions:
+              type: array
+              example: ["Format No Soport"]
+    Success:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            urlServices:
+              type: string
+              example: "http://localhost:3000"
+            path:
+              type: string
+              example: "/services/method"
+        result:
+          type: array
+          example:
+            [
+              { id:1, name:"jorge" },
+              { id:2, name:"daniel" },
+              { id:3, name:"juan" },
+              { id:4, name:"charly" },
+            ]
