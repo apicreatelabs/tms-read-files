@@ -2,7 +2,7 @@
   "name": "tms-read-files",
   "jest": {
     "verbose": true,
-    "collectCoverageFrom": ["**/*.{js}", "!**/node_modules/**"]
+    "collectCoverageFrom": ["**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**"]
   },
   "version": "1.0.0",
   "description": "read files xlsx csv txt",
