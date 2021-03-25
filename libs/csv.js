@@ -5,8 +5,9 @@ async function readCsv(file){
         let data = await CSVToJSON().fromFile(file)
     } catch (error) {
         console.log(error);
+        return false;
     }
-return data;
+return data, true;
 }
 
 module.exports= {
